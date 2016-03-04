@@ -1,0 +1,117 @@
+extends layout
+
+block content
+    div(class="container")
+       
+        
+        
+        div(class="jumbotron")
+            div(class="bs-example" data-example-id="inverted-navbar")
+                nav(class="navbar navbar-inverse")
+                    div(class="navbar-header")
+                        btn(class="navbar-toggle collapsed" aria-expanded="false" data-target="#bs-example-navbar-collapse-9" data-toggle="collapse" type="button")
+                        a(class="navbar-brand" href="/")="Home"
+                        btn(class="navbar-toggle collapsed" aria-expanded="false" data-target="#bs-example-navbar-collapse-9" data-toggle="collapse" type="button")
+                        a(class="navbar-brand" href="/visual")="Visual Representation"
+                        btn(class="navbar-toggle collapsed" aria-expanded="false" data-target="#bs-example-navbar-collapse-9" data-toggle="collapse" type="button")
+                        a(class="navbar-brand" href="/about")="About"
+        div(class="container")
+       
+        h1= title
+        br
+        div(class="row")
+            div(class="col-xs-6 col-md-4")
+                strong ID:
+                label #{docs[0].id}
+            div(class="col-xs-6 col-md-4")
+                strong GoldMemeber:
+                label #{docs[0]._golden}
+            div(class="col-xs-6 col-md-4")
+                strong Status:
+                label #{docs[0]._unit_state}
+        div(class="row")
+            div(class="col-xs-6 col-md-4")
+                strong Points:
+                label #{docs[0]._trusted_judgments}
+            div(class="col-xs-6 col-md-4")
+                strong Finalized Date:
+                label #{docs[0]._last_judgment_at}
+            div(class="col-xs-6 col-md-4")
+                strong Airline Sentiment:
+                label #{docs[0].airline_sentiment}
+        div(class="row")
+            div(class="col-xs-6 col-md-4")
+                strong Sentiment Confidence:
+                label #{docs[0].airline_sentiment_confidence}
+            div(class="col-xs-6 col-md-4")
+                strong Reason:
+                label #{docs[0].negativereason}
+            div(class="col-xs-6 col-md-4")
+                strong Reason Confidence:
+                label #{docs[0].negativereason_confidence}
+        div(class="row")
+            div(class="col-xs-6 col-md-4")
+                strong Airline:
+                label #{docs[0].airline}
+            div(class="col-xs-6 col-md-4")
+                strong GMember Sentiment:
+                label #{docs[0].airline_sentiment_gold}
+            div(class="col-xs-6 col-md-4")
+                strong User Name:
+                label #{docs[0].fromUser}
+        div(class="row")
+            div(class="col-xs-6 col-md-4")
+                strong GMember NReason:
+                label #{docs[0].negativereason_gold}
+            div(class="col-xs-6 col-md-4")
+                strong Retweet Count:
+                label #{docs[0].retweet_count}
+            div(class="col-xs-6 col-md-4")
+                strong Tweet Location:
+                label #{docs[0].tweet_location}
+        div(class="row")
+            div(class="col-xs-6 col-md-4")
+                strong Tweet Coordinate:
+                label #{docs[0].tweet_coord}
+            div(class="col-xs-6 col-md-4")
+                strong Created Time:
+                label #{docs[0].tweet_created} 
+            div(class="col-xs-6 col-md-4")
+                strong Tweet ID:
+                label #{docs[0].tweet_id}
+        div(class="row")
+            div(class="col-xs-6 col-md-4")
+                strong Tweet:
+                label #{docs[0].text}
+            div(class="col-xs-6 col-md-4")
+                strong Tweet Time Zone:
+                label #{docs[0].user_timezone}
+            div(class="col-xs-6 col-md-4")
+                strong Annotations:
+                label #{docs[0].comment}
+
+       
+        br
+        br
+        
+        div(class="jumbotron")
+            form#formAddUser(name="Comments",method="post",action="/comments" onsubmit="Redirect();")
+                    div(class="row")
+                        div(class="col-lg-6")
+                            div(class="input-group")
+                                input#inputComments(type="text", class="form-control", placeholder="Type your comment here...",name="Comment" required)
+                                span(class="input-group-btn")
+                                    button#btnGo(class="btn btn-primary") Add Comment
+
+            
+        br
+     
+        form#formSearchUser(name="search",method="post",action="/userlist")
+                div(class="row")
+                    div(class="col-lg-6")
+                        div(class="input-group")
+                            input#inputUserName(type="hidden", class="form-control", value="#{global2}", name="username")
+                            span(class="input-group-btn")
+                                button#btnGo(class="btn btn-primary") Search Again
+                
+        

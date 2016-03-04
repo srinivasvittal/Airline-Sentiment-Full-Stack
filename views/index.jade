@@ -1,0 +1,32 @@
+extends layout
+
+block content   
+        div(class="jumbotron")
+            div(class="bs-example" data-example-id="inverted-navbar")
+                nav(class="navbar navbar-inverse")
+                    div(class="navbar-header")
+                        btn(class="navbar-toggle collapsed" aria-expanded="false" data-target="#bs-example-navbar-collapse-9" data-toggle="collapse" type="button")
+                        a(class="navbar-brand" href="/")="Home"
+                        btn(class="navbar-toggle collapsed" aria-expanded="false" data-target="#bs-example-navbar-collapse-9" data-toggle="collapse" type="button")
+                        a(class="navbar-brand" href="/visual")="Visual Representation"
+                        btn(class="navbar-toggle collapsed" aria-expanded="false" data-target="#bs-example-navbar-collapse-9" data-toggle="collapse" type="button")
+                        a(class="navbar-brand" href="/about")="About"
+                
+            br
+            br
+            div(class="container") 
+                h1(style="font-size:40px")= title
+                br
+                br
+                h4(style="font-size:20px")= "Enter the text you want to search from tweets" 
+                form#formSearchUser(name="search",method="post",action="/userlist")
+                     div(class="row")
+                        div(class="col-lg-6")
+                            div(class="input-group")
+                                input#inputUserName(type="text", placeholder="Enter the text", name="username", class="form-control")
+                                span(class="input-group-btn")
+                                    button#btnGo(class="btn btn-default") Go
+                br
+                br        
+                br        
+                

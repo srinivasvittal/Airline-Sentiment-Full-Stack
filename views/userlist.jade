@@ -1,0 +1,59 @@
+extends layout
+
+block content
+   
+        div(class="head")
+            hr
+        
+           
+            div(class="jumbotron")
+                div(class="bs-example" data-example-id="inverted-navbar")
+                     nav(class="navbar navbar-inverse")
+                        div(class="navbar-header")
+                            btn(class="navbar-toggle collapsed" aria-expanded="false" data-target="#bs-example-navbar-collapse-9" data-toggle="collapse" type="button")
+                            a(class="navbar-brand" href="/")="Home"
+                            btn(class="navbar-toggle collapsed" aria-expanded="false" data-target="#bs-example-navbar-collapse-9" data-toggle="collapse" type="button")
+                            a(class="navbar-brand" href="/visual")="Visual Representation"
+                            btn(class="navbar-toggle collapsed" aria-expanded="false" data-target="#bs-example-navbar-collapse-9" data-toggle="collapse" type="button")
+                            a(class="navbar-brand" href="/about")="About"
+      
+            br
+            br
+        div(class)
+        
+            
+        h2="Total no of tweets = "+userlist.length 
+
+
+        p Showing search result for your query "#{global2}"
+        br
+        
+        div(class="panel panel-default")
+            div(class="panel-heading")
+                div(class="panel-body table-responsive")
+                    table(class="table")
+                        tr
+                            th Airlines
+                            th Name 
+                            th Tweet
+                            th Created Time
+                            th Sentiment 
+
+
+                        each user, i in userlist
+                            tr
+                            td
+                                #{user.airline}=user.airline
+                            td
+                                a(href="/comments/#{user.id}" id=user.id )= user.fromUser
+                            td
+                                #{user.text}=user.text
+                            td
+                                #{user.time}=user.tweet_created
+                            td
+                                #{user.sentiment}=user.airline_sentiment
+
+
+
+                 
+                            
